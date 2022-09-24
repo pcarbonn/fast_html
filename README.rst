@@ -22,7 +22,7 @@ Installation
 ------------
 ``pip install htmx_gen`` or copy the (single) source file in your project.
 
-Don't forget to add a star on GitHub ! Thanks.
+Don't forget to `add a star on GitHub <https://github.com/pcarbonn/htmx_gen>`_ ! Thanks.
 
 
 Tutorial:
