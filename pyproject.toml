@@ -1,8 +1,16 @@
 [tool.poetry]
 name = "htmx_gen"
-version = "1.0.0"
+version = "1.0.1"
 description = "Generate HTML conveniently and efficiently"
 authors = ["Pierre <pierre.carbonnelle@gmail.com>"]
+readme = "README.rst"
+repository = "https://github.com/pcarbonn/htmx_gen"
+keywords = ["HTML", "HTMX"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Topic :: Internet :: WWW/HTTP"
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -10,5 +18,5 @@ python = "^3.7"
 [tool.poetry.dev-dependencies]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.0.1"]
 build-backend = "poetry.core.masonry.api"
