@@ -13,8 +13,7 @@ Pros:
 
 Cons:
 
-- the name of some tag attributes is changed
-(e.g., ``class_`` instead of ``class``, due to Python parser)
+- the name of some tag attributes is changed (e.g., ``class_`` instead of ``class``, due to Python parser)
 
 - possible conflicts of function names in your code base
 
