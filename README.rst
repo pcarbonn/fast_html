@@ -4,13 +4,18 @@ It is an alternative to templating engines, like Jinja,
 for use with, e.g., `htmx <https://htmx.org/>`__.
 
 Pros:
+
 - use familiar python syntax
+
 - use efficient concatenation techniques (`join`, see `here <https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>`__)
+
 - optional automatic indentation
 
 Cons:
+
 - the name of some tag attributes is changed
 (e.g., ``class_`` instead of ``class``, due to Python parser)
+
 - possible conflicts of function names in your code base
 
 
@@ -26,7 +31,8 @@ Tutorial:
 
 >>> from htmx_gen import *
 
-A tag is created by calling a function of the corresponding name:
+A tag is created by calling a function of the corresponding name,
+and rendered using ``render``:
 
 >>> print(render(p("text")))
 <p>text</p>
@@ -80,7 +86,7 @@ after the other attributes, to match the order of rendering:
 
 
 When debugging your code, you can set global variable ``indent`` to ``True``
-(or call `indent_it(True)`) to obtain HTML with tag indentation, e.g.,
+(or call ``indent_it(True)``) to obtain HTML with tag indentation, e.g.,
 
 >>> indent_it(True); print(render(div(class_="s12", i=["text", span("item 1"), span("item 2")])))
 <div class="s12">
