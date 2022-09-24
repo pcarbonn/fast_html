@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "htmx_gen"
+version = "1.0.0"
+description = "Generate HTML conveniently and efficiently"
+authors = ["Pierre <pierre.carbonnelle@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
