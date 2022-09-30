@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "htmx_gen"
-version = "1.0.1"
+version = "1.0.2"
 description = "Generate HTML conveniently and efficiently"
 authors = ["Pierre <pierre.carbonnelle@gmail.com>"]
 readme = "README.rst"
 repository = "https://github.com/pcarbonn/htmx_gen"
+license = "LGPL-3.0-or-later"
 keywords = ["HTML", "HTMX"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",

@@ -1,4 +1,4 @@
-This module contains functions to generate HTML conveniently and efficiently.
+htmx_gen is a fast and minimalist HTML generator.
 
 It is an alternative to templating engines, like Jinja,
 for use with, e.g., `htmx <https://htmx.org/>`__.
@@ -7,15 +7,20 @@ Pros:
 
 - use familiar python syntax
 
-- use efficient concatenation techniques (`join`, see `here <https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>`__)
+- use efficient concatenation techniques
 
 - optional automatic indentation
 
-Cons:
+Unlike other HTML generators (e.g. `Dominate <https://pypi.org/project/dominate/>`__) that use python objects to represent HTML snippets,
+htmx_gen represents HTML snippets using string `generators <https://docs.python.org/3/glossary.html#term-generator>`__
+that can be rendered extremely fast using ``join``.
+(see `here <https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>`__)
 
-- the name of some tag attributes is changed (e.g., ``class_`` instead of ``class``, due to Python parser)
+Like other HTML generators, one needs to remember:
 
-- possible conflicts of function names in your code base
+- the name of some tags and attributes is changed (e.g., ``class_`` instead of ``class``, due to Python parser)
+
+- there may be conflicts of function names with your code base
 
 
 Installation
@@ -51,13 +56,18 @@ Tag attributes are specified using named arguments:
 >>> print(render(ul(li("text", selected=False))))
 <ul><li>text</li></ul>
 
+The python parser introduces some constraints:
 
-Some tag attributes are changed: you must add ``_`` to tag (or attribute) names
-conflicting with Python reserved names, (e.g. ``class_`` instead of ``class``),
-and you must use ``_`` instead of ``-`` in attribute names.
+- The following tags require a trailing underscore: ``del_``, ``input_``, ``map_``, ``object_``.
 
->>> print(render(p("text", class_="s12", hx_get="url")))
-<p class="s12" hx-get="url">text</p>
+- The following tag attributes require a trailing underscore: ``class_``, ``for_`` (and possibly others).
+
+In fact, the trailing underscore in attribute names is always removed by htmx_gen,
+and other underscores are replaced by ``-``.
+For example, the htmx attribute ``hx-get`` is set using ``hx_get="url"``.
+
+>>> print(render(object_("text", class_="s12", hx_get="url")))
+<object class="s12" hx-get="url">text</object>
 
 >>> print(render(button("Click me", hx_post="/clicked", hx_swap="outerHTML")))
 <button hx-post="/clicked" hx-swap="outerHTML">Click me</button>
@@ -82,6 +92,13 @@ after the other attributes, to match the order of rendering:
 ...                 li("item 2")]
 ...      )))
 <ul class="s12"><li>item 1</li><li>item 2</li></ul>
+
+You can create your own tag using the ``tag`` function:
+
+>>> def my_tag(inner=None, **kwargs):
+...     yield from tag("my_tag", inner, **kwargs)
+>>> print(render(my_tag("text")))
+<my_tag>text</my_tag>
 
 
 When debugging your code, you can set global variable ``indent`` to ``True``

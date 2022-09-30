@@ -96,48 +96,48 @@ def a(inner=None, **kwargs):
     yield from tag("a", inner, **kwargs)
 
 
-def abbr(**kwargs):
-    yield from tag("abbr", **kwargs)
+def abbr(inner=None, **kwargs):
+    yield from tag("abbr", inner, **kwargs)
 
 
-def address(**kwargs):
-    yield from tag("address", **kwargs)
+def address(inner=None, **kwargs):
+    yield from tag("address", inner, **kwargs)
 
 
 def area(**kwargs):
     yield from solo_tag("area", **kwargs)
 
 
-def article(**kwargs):
-    yield from tag("article", **kwargs)
+def article(inner=None, **kwargs):
+    yield from tag("article", inner, **kwargs)
 
 
-def aside(**kwargs):
-    yield from tag("aside", **kwargs)
+def aside(inner=None, **kwargs):
+    yield from tag("aside", inner, **kwargs)
 
 
-def audio(**kwargs):
-    yield from tag("audio", **kwargs)
+def audio(inner=None, **kwargs):
+    yield from tag("audio", inner, **kwargs)
 
 
-def b(**kwargs):
-    yield from tag("b", **kwargs)
+def b(inner=None, **kwargs):
+    yield from tag("b", inner, **kwargs)
 
 
 def base(**kwargs):
     yield from solo_tag("base", **kwargs)
 
 
-def bdi(**kwargs):
-    yield from tag("bdi", **kwargs)
+def bdi(inner=None, **kwargs):
+    yield from tag("bdi", inner, **kwargs)
 
 
-def bdo(**kwargs):
-    yield from tag("bdo", **kwargs)
+def bdo(inner=None, **kwargs):
+    yield from tag("bdo", inner, **kwargs)
 
 
-def blockquote(**kwargs):
-    yield from tag("blockquote", **kwargs)
+def blockquote(inner=None, **kwargs):
+    yield from tag("blockquote", inner, **kwargs)
 
 
 def body(inner=None, **kwargs):
@@ -152,164 +152,164 @@ def button(inner=None, **kwargs):
     yield from tag("button", inner, **kwargs)
 
 
-def canvas(**kwargs):
-    yield from tag("canvas", **kwargs)
+def canvas(inner=None, **kwargs):
+    yield from tag("canvas", inner, **kwargs)
 
 
-def caption(**kwargs):
-    yield from tag("caption", **kwargs)
+def caption(inner=None, **kwargs):
+    yield from tag("caption", inner, **kwargs)
 
 
-def cite(**kwargs):
-    yield from tag("cite", **kwargs)
+def cite(inner=None, **kwargs):
+    yield from tag("cite", inner, **kwargs)
 
 
-def code(**kwargs):
-    yield from tag("code", **kwargs)
+def code(inner=None, **kwargs):
+    yield from tag("code", inner, **kwargs)
 
 
-def col(**kwargs):
-    yield from tag("col", **kwargs)
+def col(inner=None, **kwargs):
+    yield from tag("col", inner, **kwargs)
 
 
-def colgroup(**kwargs):
-    yield from tag("colgroup", **kwargs)
+def colgroup(inner=None, **kwargs):
+    yield from tag("colgroup", inner, **kwargs)
 
 
-def data(**kwargs):
-    yield from tag("data", **kwargs)
+def data(inner=None, **kwargs):
+    yield from tag("data", inner, **kwargs)
 
 
-def datalist(**kwargs):
-    yield from tag("datalist", **kwargs)
+def datalist(inner=None, **kwargs):
+    yield from tag("datalist", inner, **kwargs)
 
 
-def dd(**kwargs):
-    yield from tag("dd", **kwargs)
+def dd(inner=None, **kwargs):
+    yield from tag("dd", inner, **kwargs)
 
 
-def del_(**kwargs):
-    yield from tag("del", **kwargs)
+def del_(inner=None, **kwargs):
+    yield from tag("del", inner, **kwargs)
 
 
-def details(**kwargs):
-    yield from tag("details", **kwargs)
+def details(inner=None, **kwargs):
+    yield from tag("details", inner, **kwargs)
 
 
-def dfn(**kwargs):
-    yield from tag("dfn", **kwargs)
+def dfn(inner=None, **kwargs):
+    yield from tag("dfn", inner, **kwargs)
 
 
-def dialog(**kwargs):
-    yield from tag("dialog", **kwargs)
+def dialog(inner=None, **kwargs):
+    yield from tag("dialog", inner, **kwargs)
 
 
 def div(inner=None, **kwargs):
     yield from tag("div", inner, **kwargs)
 
 
-def dl(**kwargs):
-    yield from tag("dl", **kwargs)
+def dl(inner=None, **kwargs):
+    yield from tag("dl", inner, **kwargs)
 
 
-def dt(**kwargs):
-    yield from tag("dt", **kwargs)
+def dt(inner=None, **kwargs):
+    yield from tag("dt", inner, **kwargs)
 
 
-def em(**kwargs):
-    yield from tag("em", **kwargs)
+def em(inner=None, **kwargs):
+    yield from tag("em", inner, **kwargs)
 
 
-def embed(**kwargs):
-    yield from tag("embed", **kwargs)
+def embed(inner=None, **kwargs):
+    yield from tag("embed", inner, **kwargs)
 
 
-def fieldset(**kwargs):
-    yield from tag("fieldset", **kwargs)
+def fieldset(inner=None, **kwargs):
+    yield from tag("fieldset", inner, **kwargs)
 
 
-def figcaption(**kwargs):
-    yield from tag("figcaption", **kwargs)
+def figcaption(inner=None, **kwargs):
+    yield from tag("figcaption", inner, **kwargs)
 
 
-def figure(**kwargs):
-    yield from tag("figure", **kwargs)
+def figure(inner=None, **kwargs):
+    yield from tag("figure", inner, **kwargs)
 
 
-def footer(**kwargs):
-    yield from tag("footer", **kwargs)
+def footer(inner=None, **kwargs):
+    yield from tag("footer", inner, **kwargs)
 
 
 def form(inner=None, **kwargs):
     yield from tag("form", inner, **kwargs)
 
-def h1(**kwargs):
-    yield from tag("h1", **kwargs)
+def h1(inner=None, **kwargs):
+    yield from tag("h1", inner, **kwargs)
 
 
-def h2(**kwargs):
-    yield from tag("h2", **kwargs)
+def h2(inner=None, **kwargs):
+    yield from tag("h2", inner, **kwargs)
 
 
-def h3(**kwargs):
-    yield from tag("h3", **kwargs)
+def h3(inner=None, **kwargs):
+    yield from tag("h3", inner, **kwargs)
 
 
-def h4(**kwargs):
-    yield from tag("h4", **kwargs)
+def h4(inner=None, **kwargs):
+    yield from tag("h4", inner, **kwargs)
 
 
-def h5(**kwargs):
-    yield from tag("h5", **kwargs)
+def h5(inner=None, **kwargs):
+    yield from tag("h5", inner, **kwargs)
 
 
-def h6(**kwargs):
-    yield from tag("h6", **kwargs)
+def h6(inner=None, **kwargs):
+    yield from tag("h6", inner, **kwargs)
 
 
-def head(**kwargs):
-    yield from tag("head", **kwargs)
+def head(inner=None, **kwargs):
+    yield from tag("head", inner, **kwargs)
 
 
-def header(**kwargs):
-    yield from tag("header", **kwargs)
+def header(inner=None, **kwargs):
+    yield from tag("header", inner, **kwargs)
 
 
 def hr(**kwargs):
     yield from solo_tag("hr", **kwargs)
 
 
-def html(**kwargs):
-    yield from tag("html", **kwargs)
+def html(inner=None, **kwargs):
+    yield from tag("html", inner, **kwargs)
 
 
 def i(inner=None, **kwargs):
     yield from tag("i", inner, **kwargs)
 
-def iframe(**kwargs):
-    yield from tag("iframe", **kwargs)
+def iframe(inner=None, **kwargs):
+    yield from tag("iframe", inner, **kwargs)
 
 
 def img(**kwargs):
     yield from solo_tag("img", **kwargs)
 
 
-def input(**kwargs):
+def input_( **kwargs):
     yield from solo_tag("input", **kwargs)
 
-def ins(**kwargs):
-    yield from tag("ins", **kwargs)
+def ins(inner=None, **kwargs):
+    yield from tag("ins", inner, **kwargs)
 
 
-def kbd(**kwargs):
-    yield from tag("kbd", **kwargs)
+def kbd(inner=None, **kwargs):
+    yield from tag("kbd", inner, **kwargs)
 
 
 def label(inner=None, **kwargs):
     yield from tag("label", inner, **kwargs)
 
-def legend(**kwargs):
-    yield from tag("legend", **kwargs)
+def legend(inner=None, **kwargs):
+    yield from tag("legend", inner, **kwargs)
 
 
 def li(inner=None, **kwargs):
@@ -319,48 +319,48 @@ def link(**kwargs):
     yield from solo_tag("link", **kwargs)
 
 
-def main(**kwargs):
-    yield from tag("main", **kwargs)
+def main(inner=None, **kwargs):
+    yield from tag("main", inner, **kwargs)
 
 
-def map(**kwargs):
-    yield from tag("map", **kwargs)
+def map_(inner=None, **kwargs):
+    yield from tag("map", inner, **kwargs)
 
 
-def mark(**kwargs):
-    yield from tag("mark", **kwargs)
+def mark(inner=None, **kwargs):
+    yield from tag("mark", inner, **kwargs)
 
 
 def meta(**kwargs):
     yield from solo_tag("meta", **kwargs)
 
 
-def nav(**kwargs):
-    yield from tag("nav", **kwargs)
+def nav(inner=None, **kwargs):
+    yield from tag("nav", inner, **kwargs)
 
 
-def noscript(**kwargs):
-    yield from tag("noscript", **kwargs)
+def noscript(inner=None, **kwargs):
+    yield from tag("noscript", inner, **kwargs)
 
 
-def object_(**kwargs):
-    yield from tag("object", **kwargs)
+def object_(inner=None, **kwargs):
+    yield from tag("object", inner, **kwargs)
 
 
-def ol(**kwargs):
-    yield from tag("ol", **kwargs)
+def ol(inner=None, **kwargs):
+    yield from tag("ol", inner, **kwargs)
 
 
-def optgroup(**kwargs):
-    yield from tag("optgroup", **kwargs)
+def optgroup(inner=None, **kwargs):
+    yield from tag("optgroup", inner, **kwargs)
 
 
-def option(**kwargs):
-    yield from tag("option", **kwargs)
+def option(inner=None, **kwargs):
+    yield from tag("option", inner, **kwargs)
 
 
-def output(**kwargs):
-    yield from tag("output", **kwargs)
+def output(inner=None, **kwargs):
+    yield from tag("output", inner, **kwargs)
 
 
 def p(inner=None, **kwargs):
@@ -370,56 +370,56 @@ def param(**kwargs):
     yield from solo_tag("param", **kwargs)
 
 
-def picture(**kwargs):
-    yield from tag("picture", **kwargs)
+def picture(inner=None, **kwargs):
+    yield from tag("picture", inner, **kwargs)
 
 
-def pre(**kwargs):
-    yield from tag("pre", **kwargs)
+def pre(inner=None, **kwargs):
+    yield from tag("pre", inner, **kwargs)
 
 
-def progress(**kwargs):
-    yield from tag("progress", **kwargs)
+def progress(inner=None, **kwargs):
+    yield from tag("progress", inner, **kwargs)
 
 
-def q(**kwargs):
-    yield from tag("q", **kwargs)
+def q(inner=None, **kwargs):
+    yield from tag("q", inner, **kwargs)
 
 
-def rp(**kwargs):
-    yield from tag("rp", **kwargs)
+def rp(inner=None, **kwargs):
+    yield from tag("rp", inner, **kwargs)
 
 
-def rt(**kwargs):
-    yield from tag("rt", **kwargs)
+def rt(inner=None, **kwargs):
+    yield from tag("rt", inner, **kwargs)
 
 
-def ruby(**kwargs):
-    yield from tag("ruby", **kwargs)
+def ruby(inner=None, **kwargs):
+    yield from tag("ruby", inner, **kwargs)
 
 
-def s(**kwargs):
-    yield from tag("s", **kwargs)
+def s(inner=None, **kwargs):
+    yield from tag("s", inner, **kwargs)
 
 
-def samp(**kwargs):
-    yield from tag("samp", **kwargs)
+def samp(inner=None, **kwargs):
+    yield from tag("samp", inner, **kwargs)
 
 
-def script(**kwargs):
-    yield from tag("script", **kwargs)
+def script(inner=None, **kwargs):
+    yield from tag("script", inner, **kwargs)
 
 
-def section(**kwargs):
-    yield from tag("section", **kwargs)
+def section(inner=None, **kwargs):
+    yield from tag("section", inner, **kwargs)
 
 
-def select(**kwargs):
-    yield from tag("select", **kwargs)
+def select(inner=None, **kwargs):
+    yield from tag("select", inner, **kwargs)
 
 
-def small(**kwargs):
-    yield from tag("small", **kwargs)
+def small(inner=None, **kwargs):
+    yield from tag("small", inner, **kwargs)
 
 
 def source(**kwargs):
@@ -429,68 +429,68 @@ def source(**kwargs):
 def span(inner=None, **kwargs):
     yield from tag("span", inner, **kwargs)
 
-def strong(**kwargs):
-    yield from tag("strong", **kwargs)
+def strong(inner=None, **kwargs):
+    yield from tag("strong", inner, **kwargs)
 
 
-def style(**kwargs):
-    yield from tag("style", **kwargs)
+def style(inner=None, **kwargs):
+    yield from tag("style", inner, **kwargs)
 
 
-def sub(**kwargs):
-    yield from tag("sub", **kwargs)
+def sub(inner=None, **kwargs):
+    yield from tag("sub", inner, **kwargs)
 
 
-def summary(**kwargs):
-    yield from tag("summary", **kwargs)
+def summary(inner=None, **kwargs):
+    yield from tag("summary", inner, **kwargs)
 
 
-def sup(**kwargs):
-    yield from tag("sup", **kwargs)
+def sup(inner=None, **kwargs):
+    yield from tag("sup", inner, **kwargs)
 
 
-def svg(**kwargs):
-    yield from tag("svg", **kwargs)
+def svg(inner=None, **kwargs):
+    yield from tag("svg", inner, **kwargs)
 
 
 def table(inner=None, **kwargs):
     yield from tag("table", inner, **kwargs)
 
 
-def tbody(**kwargs):
-    yield from tag("tbody", **kwargs)
+def tbody(inner=None, **kwargs):
+    yield from tag("tbody", inner, **kwargs)
 
 
 def td(inner=None, **kwargs):
     yield from tag("td", inner, **kwargs)
 
 
-def template(**kwargs):
-    yield from tag("template", **kwargs)
+def template(inner=None, **kwargs):
+    yield from tag("template", inner, **kwargs)
 
 
-def textarea(**kwargs):
-    yield from tag("textarea", **kwargs)
+def textarea(inner=None, **kwargs):
+    yield from tag("textarea", inner, **kwargs)
 
 
-def tfoot(**kwargs):
-    yield from tag("tfoot", **kwargs)
+def tfoot(inner=None, **kwargs):
+    yield from tag("tfoot", inner, **kwargs)
 
 
 def th(inner=None, **kwargs):
     yield from tag("th", inner, **kwargs)
 
 
-def thead(**kwargs):
-    yield from tag("thead", **kwargs)
+def thead(inner=None, **kwargs):
+    yield from tag("thead", inner, **kwargs)
 
 
-def time(**kwargs):
-    yield from tag("time", **kwargs)
+def time(inner=None, **kwargs):
+    yield from tag("time", inner, **kwargs)
 
 
-def title(**kwargs):
-    yield from tag("title", **kwargs)
+def title(inner=None, **kwargs):
+    yield from tag("title", inner, **kwargs)
 
 
 def tr(inner=None, **kwargs):
@@ -501,19 +501,19 @@ def track(**kwargs):
     yield from solo_tag("track", **kwargs)
 
 
-def u(**kwargs):
-    yield from tag("u", **kwargs)
+def u(inner=None, **kwargs):
+    yield from tag("u", inner, **kwargs)
 
 
 def ul(inner=None, **kwargs):
     yield from tag("ul", inner, **kwargs)
 
-def var(**kwargs):
-    yield from tag("var", **kwargs)
+def var(inner=None, **kwargs):
+    yield from tag("var", inner, **kwargs)
 
 
-def video(**kwargs):
-    yield from tag("video", **kwargs)
+def video(inner=None, **kwargs):
+    yield from tag("video", inner, **kwargs)
 
 
 def wbr(**kwargs):
