@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "htmx_gen"
-version = "1.0.2"
+version = "1.0.3"
 description = "Generate HTML conveniently and efficiently"
 authors = ["Pierre <pierre.carbonnelle@gmail.com>"]
 readme = "README.rst"
