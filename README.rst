@@ -1,4 +1,4 @@
-htmx_gen is a fast and minimalist HTML generator.
+fast_html is a fast, minimalist HTML generator.
 
 It is an alternative to templating engines, like Jinja,
 for use with, e.g., `htmx <https://htmx.org/>`__.
@@ -12,7 +12,7 @@ Pros:
 - optional automatic indentation
 
 Unlike other HTML generators (e.g. `Dominate <https://pypi.org/project/dominate/>`__) that use python objects to represent HTML snippets,
-htmx_gen represents HTML snippets using string `generators <https://docs.python.org/3/glossary.html#term-generator>`__
+fast_html represents HTML snippets using string `generators <https://docs.python.org/3/glossary.html#term-generator>`__
 that can be rendered extremely fast using ``join``.
 (see `here <https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>`__)
 
@@ -25,15 +25,15 @@ Like other HTML generators, one needs to remember:
 
 Installation
 ------------
-``pip install htmx_gen`` or copy the (single) source file in your project.
+``pip install fast_html`` or copy the (single) source file in your project.
 
-Don't forget to `add a star on GitHub <https://github.com/pcarbonn/htmx_gen>`_ ! Thanks.
+Don't forget to `add a star on GitHub <https://github.com/pcarbonn/fast_html>`_ ! Thanks.
 
 
 Tutorial:
 ---------
 
->>> from htmx_gen import *
+>>> from fast_html import *
 
 A tag is created by calling a function of the corresponding name,
 and rendered using ``render``:
@@ -62,7 +62,7 @@ The python parser introduces some constraints:
 
 - The following tag attributes require a trailing underscore: ``class_``, ``for_`` (and possibly others).
 
-In fact, the trailing underscore in attribute names is always removed by htmx_gen,
+In fact, the trailing underscore in attribute names is always removed by fast_html,
 and other underscores are replaced by ``-``.
 For example, the htmx attribute ``hx-get`` is set using ``hx_get="url"``.
 
