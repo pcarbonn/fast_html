@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fast_html"
-version = "1.0.2"
+version = "1.0.3"
 description = "A fast, minimalist HTML generator"
 authors = ["Pierre <pierre.carbonnelle@gmail.com>"]
 readme = "README.rst"
