@@ -1,4 +1,4 @@
-__version__ = '1.0.1'
+__version__ = '1.0.3'
 
 indent = False
 
@@ -17,6 +17,8 @@ def indent_it(value):
     indent = value
 
 def render(gen: Tag) -> str:
+    if type(gen) == list:
+        return ''.join(render(t) for t in gen)
     return ''.join(gen)
 
 
@@ -82,7 +84,7 @@ def tag(tag_name: str,
         else:
             for i in inner:
                 if type(i) == str:  # inner is a Tag
-                    yield (f"{_tab}{i}{_cr}" if indent else i)
+                    yield (f"{_tab}{i}" if indent else i)
                 else:
                     for i1 in i:
                         yield from _inner(i1)

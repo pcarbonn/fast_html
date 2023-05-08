@@ -83,6 +83,8 @@ The innerHTML can also be a list of lists:
 >>> print(render(div(["text", [span(f"item {i}") for i in [1,2]]])))
 <div>text<span>item 1</span><span>item 2</span></div>
 
+>>> print(render([br(), br()]))
+<br><br>
 
 The innerHTML can also be specified using the ``i`` parameter,
 after the other attributes, to match the order of rendering:
@@ -104,7 +106,7 @@ You can create your own tag using the ``tag`` function:
 When debugging your code, you can set global variable ``indent`` to ``True``
 (or call ``indent_it(True)``) to obtain HTML with tag indentation, e.g.,
 
->>> indent_it(True); print(render(div(class_="s12", i=["text", span("item 1"), span("item 2")])))
+>>> indent_it(True); print(render(div(class_="s12", i=["text\n", span("item 1"), span("item 2")])))
 <div class="s12">
   text
   <span>
