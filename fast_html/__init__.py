@@ -34,10 +34,13 @@ def solo_tag(tag_name: str, **kwargs) -> Tag:
     """
 
     kwargs = {
-        re.sub('_$', '', k).replace('_', '-'): v for k, v in kwargs.items() if v is not None and (type(v) != bool or v)
+        re.sub('_$', '', k).replace('_', '-'): v
+        for k, v in kwargs.items()
+        if v is not None and (type(v) != bool or v)
     }
 
-    attrs = ''.join(f' {k}' if type(v) == bool else f' {k}="{v}"' for k, v in kwargs.items())
+    attrs = ''.join(f' {k}' if type(v) == bool else f' {k}="{v}"'
+                    for k, v in kwargs.items())
     yield f"<{tag_name}{attrs}>{_cr if indent else ''}"
 
 
