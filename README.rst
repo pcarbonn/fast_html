@@ -118,3 +118,9 @@ When debugging your code, you can set global variable ``indent`` to ``True``
   </span>
 </div>
 <BLANKLINE>
+
+Converts an HTML string to a class representation and prints it:
+
+>>> print_html_to_class('<div class="example"><p>Some text</p></div>')
+div([p(['Some Text'], )], _class="example")
+
