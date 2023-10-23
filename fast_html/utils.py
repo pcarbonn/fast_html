@@ -19,7 +19,7 @@ class HTMLNode:
         elif attr_string:
             return f'{self.tag_name}({attr_string})'
         else:
-            return f'{self.tag_name}'
+            return f'{self.tag_name}()'
 
 
 class HTMLToClass(HTMLParser):
@@ -33,6 +33,10 @@ class HTMLToClass(HTMLParser):
         self.nodes[-1].children.append(node)
         if tag not in SELF_CLOSING_TAGS:
             self.nodes.append(node)
+
+    def handle_data(self, data):
+        if data:
+            self.nodes[-1].children.append(data.strip())
 
     def handle_startendtag(self, tag, attrs):
         pass
@@ -77,4 +81,6 @@ def print_html_to_class(html_string: str) -> None:
     """
     parser = HTMLToClass()
     parser.feed(html_string)
-    print(parser.get_parsed_tree())
+    tree = parser.get_parsed_tree()
+    print(tree)
+    return tree

@@ -3,7 +3,7 @@ __version__ = '1.0.6'
 import re
 from typing import Iterator, Union, Optional
 
-from utils import print_html_to_class
+from .utils import print_html_to_class
 
 Tag = Iterator[str]
 Inner = Union[str, Tag, Iterator['Inner']]
