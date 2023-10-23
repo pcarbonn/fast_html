@@ -36,7 +36,7 @@ def solo_tag(tag_name: str, **kwargs) -> Tag:
     """
 
     kwargs = {
-        re.sub('_$', '', k).replace('_', '-'): v
+        re.sub('_$', '', k).replace('_', ''): v
         for k, v in kwargs.items()
         if v is not None and (not isinstance(v, bool) or v)
     }

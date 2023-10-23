@@ -35,8 +35,8 @@ class HTMLToClass(HTMLParser):
             self.nodes.append(node)
 
     def handle_data(self, data):
-        if data:
-            self.nodes[-1].children.append(data.strip())
+        if data := data.strip():
+            self.nodes[-1].children.append(data)
 
     def handle_startendtag(self, tag, attrs):
         pass
