@@ -9,10 +9,10 @@ Inner = Union[str, Tag, Iterator['Inner']]
 _tab = '  '
 _cr = '\n'
 
-indent = False
+indent: bool = False
 
 
-def indent_it(value):
+def indent_it(value: bool):
     global indent
     indent = value
 
