@@ -1,13 +1,18 @@
+from typing import Dict, List
+
 from html.parser import HTMLParser
 
 SELF_CLOSING_TAGS = {'input', 'br', 'hr', 'img', 'meta', 'link', 'area', 'base', 'col', 'param', 'source'}
 
 
 class HTMLNode:
-    def __init__(self, tag_name, attrs, parent=None):
-        self.tag_name = f'{tag_name}_' if tag_name in {'input', 'del'} else tag_name
+    def __init__(self,
+                 tag_name: str,
+                 attrs: Dict,
+                 parent=None):
+        self.tag_name = f'{tag_name}_' if tag_name in {'input', 'del', 'map', 'object'} else tag_name
         self.attrs = {
-            f'_{k.replace("-", "_")}' if k in {'class', 'for'} else k.replace('-', '_'): v for k, v in attrs.items()
+            f'{k}_' if k in {'class', 'for'} else k.replace('-', '_'): v for k, v in attrs.items()
         }
         self.parent = parent
         self.children = []
@@ -47,15 +52,15 @@ class HTMLToClass(HTMLParser):
         self.nodes.pop()
 
     def get_parsed_tree(self):
-        return self.nodes[0]
+        return self.nodes[0].children  # drop the root node
 
 
-def print_html_to_class(html_string: str) -> None:
+def html_to_code(html_string: str) -> List[HTMLNode]:
     """
-    Converts an HTML string to a class representation and prints it.
+    Converts an HTML string to a code representation and prints it.
 
     This function parses the input HTML string using the HTMLToClass parser,
-    then prints the resulting class-based representation of the HTML.
+    then prints the resulting function-based representation of the HTML.
 
     Parameters
     ----------
@@ -65,12 +70,12 @@ def print_html_to_class(html_string: str) -> None:
 
     Returns
     -------
-    None
+    a list of HTMLNode objects
 
     Examples
     --------
-    >>> print_html_to_class('<div class="example"><p>Some text</p></div>')
-    div([p(['Some Text'], )], _class="example")
+    >>> html_to_code('<div class="example"><p>Some text</p></div>')
+    [div([p(['Some text'], )], _class="example")]
 
     Notes
     -----
@@ -82,5 +87,4 @@ def print_html_to_class(html_string: str) -> None:
     parser = HTMLToClass()
     parser.feed(html_string)
     tree = parser.get_parsed_tree()
-    print(tree)
     return tree

@@ -3,7 +3,7 @@ __version__ = '1.0.6'
 import re
 from typing import Iterator, Union, Optional
 
-from .utils import print_html_to_class
+from .utils import html_to_code
 
 Tag = Iterator[str]
 Inner = Union[str, Tag, Iterator['Inner']]
@@ -38,10 +38,10 @@ def solo_tag(tag_name: str, **kwargs) -> Tag:
     kwargs = {
         re.sub('_$', '', k).replace('_', '-'): v
         for k, v in kwargs.items()
-        if v is not None and (type(v) != bool or v)
+        if v is not None and (not isinstance(v, bool) or v)
     }
 
-    attrs = ''.join(f' {k}' if type(v) == bool else f' {k}="{v}"'
+    attrs = ''.join(f' {k}' if isinstance(v, bool) else f' {k}="{v}"'
                     for k, v in kwargs.items())
     yield f"<{tag_name}{attrs}>{_cr if indent else ''}"
 

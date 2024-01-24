@@ -61,7 +61,7 @@ The python parser introduces some constraints:
 
 - The following tags require a trailing underscore: ``del_``, ``input_``, ``map_``, ``object_``.
 
-- The following tag attributes require a trailing underscore: ``class_``, ``for_`` (and possibly others).
+- The following tag attributes require a trailing underscore: ``class_``, ``for_``.
 
 In fact, the trailing underscore in attribute names is always removed by fast_html,
 and other underscores are replaced by ``-``.
@@ -121,6 +121,6 @@ When debugging your code, you can set global variable ``indent`` to ``True``
 
 Converts an HTML string to a class representation and prints it:
 
->>> print_html_to_class('<div class="example"><p>Some text</p></div>')
-div([p(['Some Text'], )], _class="example")
+>>> print(html_to_code('<div class="example"><p>Some text</p></div>'))
+[div([p(['Some text'], )], class_="example")]
 
