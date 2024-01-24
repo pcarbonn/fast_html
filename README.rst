@@ -1,9 +1,10 @@
-fast_html is a fast, minimalist HTML generator.
+**fast_html** is a fast, minimalist HTML generator.
+------------
 
 It is an alternative to templating engines, like Jinja,
 for use with, e.g., `htmx <https://htmx.org/>`__.
 
-Pros:
+**Pros:**
 
 - use familiar python syntax
 
@@ -16,7 +17,7 @@ fast_html represents HTML snippets using string `generators <https://docs.python
 that can be rendered extremely fast using ``join``.
 (see `here <https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>`__)
 
-Like other HTML generators, one needs to remember:
+**Like other HTML generators, one needs to remember:**
 
 - the name of some tags and attributes is changed (e.g., ``class_`` instead of ``class``, due to Python parser)
 
@@ -117,3 +118,9 @@ When debugging your code, you can set global variable ``indent`` to ``True``
   </span>
 </div>
 <BLANKLINE>
+
+Converts an HTML string to a class representation and prints it:
+
+>>> print_html_to_class('<div class="example"><p>Some text</p></div>')
+div([p(['Some Text'], )], _class="example")
+
