@@ -55,36 +55,30 @@ class HTMLToClass(HTMLParser):
         return self.nodes[0].children  # drop the root node
 
 
-def html_to_code(html_string: str) -> List[HTMLNode]:
+def html_to_code(html_string: str) -> str:
     """
-    Converts an HTML string to a code representation and prints it.
+    Converts an HTML string to a code representation and returns it.
 
     This function parses the input HTML string using the HTMLToClass parser,
-    then prints the resulting function-based representation of the HTML.
+    then returns the resulting function-based representation of the HTML.
 
     Parameters
     ----------
     html_string : str
-        The HTML string to convert and print. This should include the full HTML that
+        The HTML string to convert. This should include the full HTML that
         you want to parse, enclosed in quotes.
 
     Returns
     -------
-    a list of HTMLNode objects
+    a string representation of the HTML
 
     Examples
     --------
     >>> html_to_code('<div class="example"><p>Some text</p></div>')
     [div([p(['Some text'], )], _class="example")]
 
-    Notes
-    -----
-    - The function calls the feed method of the HTMLToClass parser with the input string.
-    - It then obtains a class-based tree representation of the HTML using the parse tree from the parser.
-    - The class-based tree representation of the HTML string is printed to standard output.
-    - The function does not return a value.
     """
     parser = HTMLToClass()
     parser.feed(html_string)
     tree = parser.get_parsed_tree()
-    return tree
+    return str(tree)
