@@ -1,12 +1,12 @@
-__version__ = '1.0.6'
+__version__ = '1.0.7'
 
 import re
-from typing import Iterator, Union, Optional
+from typing import Iterator, Union, Optional, Iterable, Any
 
 from .utils import html_to_code
 
 Tag = Iterator[str]
-Inner = Union[str, Tag, Iterator['Inner']]
+Inner = Union[Tag, Iterator['Inner'], Any]
 
 _tab = '  '
 _cr = '\n'
@@ -42,18 +42,21 @@ def solo_tag(tag_name: str, **kwargs) -> Tag:
     }
 
     attrs = "".join(
-        f" {k}" if isinstance(v, bool) else f' {k}="{v}"' for k, v in kwargs.items()
+        f" {k}" if isinstance(v, bool) else f' {k}="{v}"'
+        for k, v in kwargs.items()
     )
     yield f"<{tag_name}{attrs}>{_cr if indent else ''}"
 
 
-def _inner(inner: Inner):
+def _inner(inner: Inner, with_cr = False):
     """unfold the inner iterators"""
-    if isinstance(inner, str):  # inner is a str
-        yield f'{_tab}{inner}' if indent else inner
-    else:
+    if isinstance(inner, Iterable) and not isinstance(inner, str):
         for i in inner:
             yield from _inner(i)
+    else:  # inner is a str
+        yield ((f'{_tab}{inner}{_cr}' if indent and with_cr else
+                f'{_tab}{inner}' if indent else
+                inner))
 
 
 def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
@@ -75,15 +78,7 @@ def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
     yield from solo_tag(tag_name, **kwargs)
 
     if inner is not None:
-        if isinstance(inner, Iterable):
-            for i in inner:
-                if isinstance(i, str):  # inner is a Tag
-                    yield f"{_tab}{i}" if indent else i
-                else:
-                    for i1 in i:
-                        yield from _inner(i1)
-        else:
-            yield f"{_tab}{str(inner)}{_cr}" if indent else str(inner)
+        yield from _inner(inner, with_cr = True)
 
     yield f"</{tag_name}>{_cr if indent else ''}"
 

@@ -45,7 +45,7 @@ and rendered using ``render``:
 
 Tag attributes are specified using named arguments:
 
->>> print(render(br(id="1")))
+>>> print(render(br(id=1)))
 <br id="1">
 
 >>> print(render(br(id=None)))
@@ -119,7 +119,7 @@ When debugging your code, you can set global variable ``indent`` to ``True``
 </div>
 <BLANKLINE>
 
-You can also convert an HTML string to a funcdtion-based code representation:
+You can also convert an HTML string to a function-based code representation:
 
 >>> print(html_to_code('<div class="example"><p>Some text</p></div>'))
 [div([p(['Some text'], )], class_="example")]
