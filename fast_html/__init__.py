@@ -41,8 +41,9 @@ def solo_tag(tag_name: str, **kwargs) -> Tag:
         if v is not None and (not isinstance(v, bool) or v)
     }
 
-    attrs = ''.join(f' {k}' if isinstance(v, bool) else f' {k}="{v}"'
-                    for k, v in kwargs.items())
+    attrs = "".join(
+        f" {k}" if isinstance(v, bool) else f' {k}="{v}"' for k, v in kwargs.items()
+    )
     yield f"<{tag_name}{attrs}>{_cr if indent else ''}"
 
 
@@ -74,15 +75,15 @@ def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
     yield from solo_tag(tag_name, **kwargs)
 
     if inner is not None:
-        if isinstance(inner, str):  # inner is a str
-            yield f'{_tab}{inner}{_cr}' if indent else inner
-        else:
+        if isinstance(inner, Iterable):
             for i in inner:
                 if isinstance(i, str):  # inner is a Tag
-                    yield f'{_tab}{i}' if indent else i
+                    yield f"{_tab}{i}" if indent else i
                 else:
                     for i1 in i:
                         yield from _inner(i1)
+        else:
+            yield f"{_tab}{str(inner)}{_cr}" if indent else str(inner)
 
     yield f"</{tag_name}>{_cr if indent else ''}"
 
