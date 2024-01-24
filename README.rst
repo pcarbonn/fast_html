@@ -1,5 +1,5 @@
 **fast_html** is a fast, minimalist HTML generator.
-------------
+
 
 It is an alternative to templating engines, like Jinja,
 for use with, e.g., `htmx <https://htmx.org/>`__.
@@ -25,14 +25,14 @@ that can be rendered extremely fast using ``join``.
 
 
 Installation
-------------
+============
 ``pip install fast_html`` or copy the (single) source file in your project.
 
 Don't forget to `add a star on GitHub <https://github.com/pcarbonn/fast_html>`_ ! Thanks.
 
 
 Tutorial:
----------
+=========
 
 >>> from fast_html import *
 
@@ -119,7 +119,7 @@ When debugging your code, you can set global variable ``indent`` to ``True``
 </div>
 <BLANKLINE>
 
-Converts an HTML string to a class representation and prints it:
+You can also convert an HTML string to a funcdtion-based code representation:
 
 >>> print(html_to_code('<div class="example"><p>Some text</p></div>'))
 [div([p(['Some text'], )], class_="example")]
