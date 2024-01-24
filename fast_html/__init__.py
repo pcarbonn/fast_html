@@ -18,7 +18,7 @@ def indent_it(value: bool):
 
 
 def render(gen: Tag) -> str:
-    return ''.join(render(t) for t in gen) if type(gen) == list else ''.join(gen)
+    return ''.join(render(t) for t in gen) if isinstance(gen, list) else ''.join(gen)
 
 
 def solo_tag(tag_name: str, **kwargs) -> Tag:
@@ -36,17 +36,18 @@ def solo_tag(tag_name: str, **kwargs) -> Tag:
     kwargs = {
         re.sub('_$', '', k).replace('_', '-'): v
         for k, v in kwargs.items()
-        if v is not None and (type(v) != bool or v)
+        if v is not None and (not isinstance(v, bool) or v)
     }
 
-    attrs = ''.join(f' {k}' if type(v) == bool else f' {k}="{v}"'
-                    for k, v in kwargs.items())
+    attrs = "".join(
+        f" {k}" if isinstance(v, bool) else f' {k}="{v}"' for k, v in kwargs.items()
+    )
     yield f"<{tag_name}{attrs}>{_cr if indent else ''}"
 
 
 def _inner(inner: Inner):
     """unfold the inner iterators"""
-    if type(inner) == str:  # inner is a str
+    if isinstance(inner, str):  # inner is a str
         yield f'{_tab}{inner}' if indent else inner
     else:
         for i in inner:
@@ -72,15 +73,15 @@ def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
     yield from solo_tag(tag_name, **kwargs)
 
     if inner is not None:
-        if type(inner) == str:  # inner is a str
-            yield f'{_tab}{inner}{_cr}' if indent else inner
-        else:
+        if isinstance(inner, Iterable):
             for i in inner:
-                if type(i) == str:  # inner is a Tag
-                    yield f'{_tab}{i}' if indent else i
+                if isinstance(i, str):  # inner is a Tag
+                    yield f"{_tab}{i}" if indent else i
                 else:
                     for i1 in i:
                         yield from _inner(i1)
+        else:
+            yield f"{_tab}{str(inner)}{_cr}" if indent else str(inner)
 
     yield f"</{tag_name}>{_cr if indent else ''}"
 
