@@ -1,7 +1,9 @@
-__version__ = '1.0.4'
+__version__ = '1.0.6'
 
 import re
 from typing import Iterator, Union, Optional
+
+from .utils import html_to_code
 
 Tag = Iterator[str]
 Inner = Union[str, Tag, Iterator['Inner']]
