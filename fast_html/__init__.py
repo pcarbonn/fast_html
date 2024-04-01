@@ -1,6 +1,7 @@
 __version__ = '1.0.7'
 
 import re
+from html import escape as escape_html
 from typing import Iterator, Union, Optional, Iterable, Any
 
 from .utils import html_to_code
@@ -12,11 +13,17 @@ _tab = '  '
 _cr = '\n'
 
 indent: bool = False
+should_escape: bool = False
 
 
 def indent_it(value: bool):
     global indent
     indent = value
+
+
+def escape_it(value: bool):
+    global should_escape
+    should_escape = value
 
 
 def render(gen: Tag) -> str:
@@ -54,6 +61,8 @@ def _inner(inner: Inner, with_cr = False):
         for i in inner:
             yield from _inner(i)
     else:  # inner is a str
+        if should_escape:
+            inner = escape_html(inner)
         yield ((f'{_tab}{inner}{_cr}' if indent and with_cr else
                 f'{_tab}{inner}' if indent else
                 inner))
