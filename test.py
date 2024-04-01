@@ -68,5 +68,5 @@ class EscapedHtmlTesting(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    doctest.testfile('README.rst')
+    doctest.testfile('README.md')
     unittest.main()
