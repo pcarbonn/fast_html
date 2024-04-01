@@ -25,6 +25,46 @@ class HtmlToStringTesting(unittest.TestCase):
         )
 
 
+class EscapedHtmlTesting(unittest.TestCase):
+    def setUp(self):
+        escape_it(True)
+
+
+    def tearDown(self):
+        escape_it(False)
+
+
+    def test_bad_script_tag(self):
+        actual = render(div([div("<script>alert(1)</script>"), div()]))
+        expected = "<div><div>&lt;script&gt;alert(1)&lt;/script&gt;</div><div></div></div>"
+
+        self.assertEqual(
+            expected,
+            actual
+        )
+
+
+    def test_deeper_nesting(self):
+        actual = render(
+            table([
+                thead(
+                    tr([
+                        td("Student ID"),
+                        td("Name"),
+                        td("Birthday"),
+                    ])
+                ),
+                tbody()
+            ])
+        )
+        expected = "<table><thead><tr><td>Student ID</td><td>Name</td><td>Birthday</td></tr></thead><tbody></tbody></table>"
+
+        self.assertEqual(
+            expected,
+            actual
+        )
+
+
 if __name__ == '__main__':
     doctest.testfile('README.rst')
     unittest.main()
