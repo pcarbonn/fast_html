@@ -1,6 +1,7 @@
 __version__ = '1.0.7'
 
 import re
+from html import escape as escape_html
 from typing import Iterator, Union, Optional, Iterable, Any
 
 from .utils import html_to_code
@@ -12,11 +13,17 @@ _tab = '  '
 _cr = '\n'
 
 indent: bool = False
+escape: bool = False
 
 
 def indent_it(value: bool):
     global indent
     indent = value
+
+
+def escape_it(value: bool):
+    global escape
+    escape = value
 
 
 def render(gen: Tag) -> str:
@@ -78,6 +85,8 @@ def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
     yield from solo_tag(tag_name, **kwargs)
 
     if inner is not None:
+        if escape and isinstance(inner, str):
+            inner = escape_html(inner)
         yield from _inner(inner, with_cr = True)
 
     yield f"</{tag_name}>{_cr if indent else ''}"
