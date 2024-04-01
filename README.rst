@@ -104,10 +104,34 @@ You can create your own tag using the ``tag`` function:
 <my_tag>text</my_tag>
 
 
+Options:
+========
+
+By default, the inner string of a tag is not escaped:
+characters ``&``, ``<`` and ``>`` in it are not converted to HTML-safe sequences.
+
+>>> print(render(p("<bold>text</bold>")))
+<p><bold>text</bold></p>
+
+Of course, you can escape strings before calling fast_html:
+
+>>> from html import escape
+>>> print(render(p(escape("<bold>text</bold>"))))
+<p>&lt;bold&gt;text&lt;/bold&gt;</p>
+
+If your policy is to escape every inner string,
+you can activate escaping by setting the variable ``escape`` to ``False``
+(or by calling ``escape_it(False)``).
+
+>>> escape_it(True)
+>>> print(render(p("<bold>text</bold>")))
+<p>&lt;bold&gt;text&lt;/bold&gt;</p>
+
 When debugging your code, you can set global variable ``indent`` to ``True``
 (or call ``indent_it(True)``) to obtain HTML with tag indentation, e.g.,
 
->>> indent_it(True); print(render(div(class_="s12", i=["text\n", span("item 1"), span("item 2")])))
+>>> indent_it(True)
+>>> print(render(div(class_="s12", i=["text\n", span("item 1"), span("item 2")])))
 <div class="s12">
   text
   <span>

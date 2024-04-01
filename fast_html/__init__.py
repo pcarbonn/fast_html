@@ -13,7 +13,7 @@ _tab = '  '
 _cr = '\n'
 
 indent: bool = False
-should_escape: bool = False
+escape: bool = False
 
 
 def indent_it(value: bool):
@@ -22,8 +22,8 @@ def indent_it(value: bool):
 
 
 def escape_it(value: bool):
-    global should_escape
-    should_escape = value
+    global escape
+    escape = value
 
 
 def render(gen: Tag) -> str:
@@ -85,7 +85,7 @@ def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
     yield from solo_tag(tag_name, **kwargs)
 
     if inner is not None:
-        if should_escape and isinstance(inner, str):
+        if escape and isinstance(inner, str):
             inner = escape_html(inner)
         yield from _inner(inner, with_cr = True)
 
