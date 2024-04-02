@@ -57,13 +57,13 @@ def solo_tag(tag_name: str, **kwargs) -> Tag:
 
 def _inner(inner: Inner, with_cr = False):
     """unfold the inner iterators"""
-    if isinstance(inner, Iterable) and not isinstance(inner, str):
-        for i in inner:
-            yield from _inner(i)
-    else:  # inner is a str
+    if isinstance(inner, str):
         yield ((f'{_tab}{inner}{_cr}' if indent and with_cr else
                 f'{_tab}{inner}' if indent else
                 inner))
+    else:
+        for i in inner:
+            yield from _inner(i)
 
 
 def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
