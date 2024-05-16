@@ -120,8 +120,8 @@ Of course, you can escape strings before calling fast_html:
     <p>&lt;bold&gt;text&lt;/bold&gt;</p>
 
 If your policy is to escape every inner string,
-you can activate escaping by setting the variable `escape` to `False`
-(or by calling `escape_it(False)`).
+you can activate escaping by setting the variable `escape` to `True`
+(or by calling `escape_it(True)`).
 
     >>> escape_it(True)
     >>> print(render(p("<bold>text</bold>")))

@@ -66,6 +66,19 @@ def _inner(inner: Inner, with_cr = False):
             yield from _inner(i)
 
 
+def escape_inner(inner: Inner) -> Inner:
+    if isinstance(inner, str):
+        return escape_html(inner)
+
+    elif isinstance(inner, list):
+        for i, item in enumerate(inner):
+            inner[i] = escape_inner(item)
+        return inner
+
+    else:
+        return inner
+
+
 def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
     """returns a generator of strings, to be rendered as a HTML tag of type `name`
 
@@ -85,8 +98,8 @@ def tag(tag_name: str, inner: Optional[Inner] = None, **kwargs) -> Tag:
     yield from solo_tag(tag_name, **kwargs)
 
     if inner is not None:
-        if escape and isinstance(inner, str):
-            inner = escape_html(inner)
+        if escape:
+            inner = escape_inner(inner)
         yield from _inner(inner, with_cr = True)
 
     yield f"</{tag_name}>{_cr if indent else ''}"
