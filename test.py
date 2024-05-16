@@ -46,6 +46,26 @@ class EscapedHtmlTesting(unittest.TestCase):
         )
 
 
+    def test_bad_script_tag_with_sibling(self):
+        actual = render(div([div(["<script>alert(1)</script>", div()]), div()]))
+        expected = "<div><div>&lt;script&gt;alert(1)&lt;/script&gt;<div></div></div><div></div></div>"
+
+        self.assertEqual(
+            expected,
+            actual
+        )
+
+
+    def test_bad_script_tag_with_nested_lists(self):
+        actual = render(div([div([["<script>alert(1)</script>"], div()]), div()]))
+        expected = "<div><div>&lt;script&gt;alert(1)&lt;/script&gt;<div></div></div><div></div></div>"
+
+        self.assertEqual(
+            expected,
+            actual
+        )
+
+
     def test_deeper_nesting(self):
         actual = render(
             table([
