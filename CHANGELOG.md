@@ -1,5 +1,10 @@
 
 
+Version 1.0.10 - Aug 14, 2024
+-----------------------------
+
+* PR7: Fix escape_it not working for lists or nested lists
+
 Version 1.0.9 - April 2, 2024
 -----------------------------
 
