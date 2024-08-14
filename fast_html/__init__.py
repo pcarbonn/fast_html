@@ -27,7 +27,7 @@ def escape_it(value: bool):
 
 
 def render(gen: Tag) -> str:
-    return ''.join(render(t) for t in gen) if isinstance(gen, list) else ''.join(gen)
+    return ''.join(map(render, gen)) if isinstance(gen, list) else ''.join(gen)
 
 
 def solo_tag(tag_name: str, **kwargs) -> Tag:
@@ -71,9 +71,7 @@ def escape_inner(inner: Inner) -> Inner:
         return escape_html(inner)
 
     elif isinstance(inner, list):
-        for i, item in enumerate(inner):
-            inner[i] = escape_inner(item)
-        return inner
+        return map(escape_inner, inner)
 
     else:
         return inner
