@@ -2,7 +2,7 @@ __version__ = '1.0.7'
 
 import re
 from html import escape as escape_html
-from typing import Iterator, Union, Optional, Iterable, Any
+from typing import Iterator, Union, Optional, Iterable, Any, List
 
 from .utils import html_to_code
 
@@ -26,7 +26,7 @@ def escape_it(value: bool):
     escape = value
 
 
-def render(gen: Tag) -> str:
+def render(gen: Union[Tag, List[Tag]]) -> str:
     return ''.join(map(render, gen)) if isinstance(gen, list) else ''.join(gen)
 
 
