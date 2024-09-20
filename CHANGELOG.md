@@ -1,5 +1,10 @@
 
 
+Version 1.0.11 - Sept 20, 2024
+-----------------------------
+
+* PR8: Fix type of `render` function parameter type
+
 Version 1.0.10 - Aug 14, 2024
 -----------------------------
 
