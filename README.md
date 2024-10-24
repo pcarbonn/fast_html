@@ -74,16 +74,28 @@ For example, the htmx attribute `hx-get` is set using `hx_get="url"`.
 
 The innerHTML can be a list:
 
-    >>> print(render(div(["text", span("item 1"), span("item 2")])))
+    >>> print(render(div(["text",
+    ...                    span("item 1"),
+    ...                    span("item 2")
+    ...                  ])))
     <div>text<span>item 1</span><span>item 2</span></div>
 
 The innerHTML can also be a list of lists:
 
-    >>> print(render(div(["text", [span(f"item {i}") for i in [1,2]]])))
+    >>> print(render(div(["text",
+    ...                   [span(f"item {i}") for i in [1,2]]
+    ...                  ])))
     <div>text<span>item 1</span><span>item 2</span></div>
 
     >>> print(render([br(), br()]))
     <br><br>
+
+You can call a generator too:
+
+    >>> def generator():
+    ...    yield "text"
+    >>> print(render(div(generator())))
+    <div>text</div>
 
 The innerHTML can also be specified using the `i` parameter,
 after the other attributes, to match the order of rendering:
@@ -113,7 +125,6 @@ characters `&`, `<` and `>` in it are not converted to HTML-safe sequences.
     <p><bold>text</bold></p>
 
 Of course, you can escape strings before calling fast_html:
-
 
     >>> from html import escape
     >>> print(render(p(escape("<bold>text</bold>"))))
