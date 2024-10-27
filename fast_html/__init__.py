@@ -2,7 +2,7 @@ __version__ = '1.0.7'
 
 import re
 from html import escape as escape_html
-from typing import Iterator, Union, Optional, Iterable, Any, List
+from typing import Iterator, Union, Optional, Iterable, Any, List, Generator
 
 from .utils import html_to_code
 
@@ -26,8 +26,10 @@ def escape_it(value: bool):
     escape = value
 
 
-def render(gen: Union[Tag, List[Tag]]) -> str:
-    return ''.join(map(render, gen)) if isinstance(gen, list) else ''.join(gen)
+def render(gen: Union[Tag, List[Tag], Generator]) -> str:
+    return (''.join(map(render, gen)) if isinstance(gen, list) else
+            ''.join(map(render, iter(gen))) if isinstance(gen, Generator) else
+            ''.join(gen))
 
 
 def solo_tag(tag_name: str, **kwargs) -> Tag:

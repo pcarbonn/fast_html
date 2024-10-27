@@ -90,12 +90,20 @@ The innerHTML can also be a list of lists:
     >>> print(render([br(), br()]))
     <br><br>
 
-You can call a generator too:
+You can call generators too:
 
-    >>> def generator():
-    ...    yield "text"
-    >>> print(render(div(generator())))
-    <div>text</div>
+    >>> def row(number, name):
+    ...     yield "<tr>"
+    ...     yield td(number)
+    ...     yield td(name)
+    ...     yield "</tr>"
+    >>> def table():
+    ...     yield "<table>"
+    ...     yield from row("1", "A")
+    ...     yield from row("2", "B")
+    ...     yield "</table>"
+    >>> print(render(table()))
+    <table><tr><td>1</td><td>A</td></tr><tr><td>2</td><td>B</td></tr></table>
 
 The innerHTML can also be specified using the `i` parameter,
 after the other attributes, to match the order of rendering:
