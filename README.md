@@ -63,7 +63,7 @@ The python parser introduces some constraints:
 - The following tag attributes require a trailing underscore: `class_`, `for_`.
 
 In fact, the trailing underscore in attribute names is always removed by fast_html,
-and other underscores are replaced by `-`.
+and other underscores are replaced by `-` (except for the `_` attribute).
 For example, the htmx attribute `hx-get` is set using `hx_get="url"`.
 
     >>> print(render(object_("text", class_="s12", hx_get="url")))
