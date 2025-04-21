@@ -12,7 +12,12 @@ class HTMLNode:
                  parent=None):
         self.tag_name = f'{tag_name}_' if tag_name in {'input', 'del', 'map', 'object'} else tag_name
         self.attrs = {
-            f'{k}_' if k in {'class', 'for'} else k.replace('-', '_'): v for k, v in attrs.items()
+            ( f'{k}_' if k in {'class', 'for'} else
+              k.replace('-', '_') if k != '_'
+              else k
+            )
+            : (v if v is not None else "true")
+            for k, v in attrs.items()
         }
         self.parent = parent
         self.children = []

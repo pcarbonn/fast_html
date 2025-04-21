@@ -1,5 +1,10 @@
 
 
+Version 1.0.12 - Apr 21, 2025
+-----------------------------
+
+* Issue #9: Hyperscript "_" attribute doesn't work
+
 Version 1.0.11 - Sept 20, 2024
 -----------------------------
 
