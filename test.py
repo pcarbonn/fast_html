@@ -26,7 +26,7 @@ class HtmlToStringTesting(unittest.TestCase):
 
     def test_underscore(self):
         self.assertEqual(
-            """[div([p(['Some text'], )], _="example", hidden="true")]""",
+            """[div([p(['Some text'], )], _="example", hidden=True)]""",
             str(html_to_code('<div _="example" hidden><p>Some text</p></div>')),
         )
 

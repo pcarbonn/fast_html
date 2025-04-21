@@ -16,14 +16,19 @@ class HTMLNode:
               k.replace('-', '_') if k != '_'
               else k
             )
-            : (v if v is not None else "true")
+            : (v if v is not None else True)
             for k, v in attrs.items()
         }
         self.parent = parent
         self.children = []
 
     def __repr__(self):
-        attr_string = ', '.join([f'{k}="{v}"' for k, v in self.attrs.items()]) if self.attrs else ''
+        attr_string = ', '.join([
+            ( f'{k}={v}' if isinstance(v, bool)
+              else f'{k}="{v}"'
+            )
+            for k, v in self.attrs.items()
+            ]) if self.attrs else ''
         if self.children:
             return f'{self.tag_name}({self.children}, {attr_string})'
         elif attr_string:
